@@ -19,6 +19,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    // Don't forget to include this to use android resources (R, manifest) in unit tests
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
 }
 
 dependencies {
@@ -29,6 +36,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
+    androidTestImplementation 'androidx.test:rules:1.1.0-alpha4'
 
     // Anko
     implementation "org.jetbrains.anko:anko-commons:$ankoVersion"
@@ -42,4 +50,13 @@ dependencies {
     // Kotlin Coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
+
+    // Robolectric
+    // (with AndroidX and SDK 28 use only the latest snapshot of Robolectric)
+    testImplementation "org.robolectric:robolectric:4.0-alpha-4-SNAPSHOT"
+
+    // Needed for Robolectric
+    testImplementation 'androidx.test:runner:1.1.0-alpha4'
+    testImplementation 'androidx.test:rules:1.1.0-alpha4'
+    testImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
 }

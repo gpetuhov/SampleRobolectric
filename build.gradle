@@ -31,6 +31,9 @@ allprojects {
 
         // This is needed for Kotlin 1.3
         maven { url 'http://dl.bintray.com/kotlin/kotlin-eap' }
+
+        // This is needed for Robolectric 4 alpha
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
     }
 }
 
